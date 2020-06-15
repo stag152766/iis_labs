@@ -7,7 +7,7 @@ def viewImage(image, name_of_window):
     cv2.namedWindow(name_of_window, cv2.WINDOW_AUTOSIZE)
     cv2.imshow(name_of_window, image)
     cv2.waitKey(0)
-    cv2.destroyAllWindow()
+    cv2.destroyAllWindows()
 
 
 image_path = "c:\\python_\\ppp.png"
@@ -20,8 +20,10 @@ faces = face_cascade.detectMultiScale(
     minNeighbors=5,
     minSize=(1, 1)
 )
-faces_detected = "Лиц обнаружено: " + format(len(faces))
+faces_detected = "Faces detected: " + format(len(faces))
 print(faces_detected)
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x + w, y + h), (255, 255, 0), 2)
 viewImage(image, faces_detected)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
